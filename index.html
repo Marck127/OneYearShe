@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para mi Chunkituy 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      padding: 20px;
+    }
+
+    .card {
+      background: rgba(0,0,0,0.25);
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 420px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      font-size: 1.8em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.05em;
+      line-height: 1.4em;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 12px 25px;
+      font-size: 1em;
+      border: none;
+      border-radius: 30px;
+      background: #ff4d6d;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background: #ff1e4d;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .rose {
+      font-size: 80px;
+      animation: float 2s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 0.9em;
+      opacity: 0.9;
+    }
+
+    .sorry {
+      margin-top: 15px;
+      font-size: 1em;
+      background: #ffd166;
+      color: #333;
+    }
+
+    .sorry:hover {
+      background: #ffbe0b;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Hola Sherin 💕</h1>
+    <p>
+      Mi princesa, mi niña, mi vida,<br>
+      mi tesoro y mi chunkituy
+    </p>
+
+    <button onclick="mostrarSorpresa()">Tócalo bajo tu propio riesgo 😏</button>
+
+    <div id="sorpresa" class="hidden">
+      <div class="rose">🌹</div>
+
+      <p>
+        Gracias por enseñarme a ser agradecido.<br>
+        Gracias por las risas.<br>
+        Gracias por todos los regalos que me diste,
+        desde tus cartas mini hechas a mano
+        hasta tu perfume Versace súper caro 😅.<br><br>
+
+        Gracias por entenderme en las buenas y en las malas.<br>
+        Gracias por no rendirte conmigo.<br><br>
+
+        Sé que ha sido un gran año a tu lado,
+        pero espero sea el inicio de muchísimos años más.<br><br>
+
+        Te amo mi amor y así seguirá ❤️
+      </p>
+
+      <button class="sorry" onclick="mostrarPerdon()">
+        Perdóname 🥺
+      </button>
+
+      <p id="perdon" class="hidden">
+        Ok… no siempre tengo la razón 😌<br>
+        Pero siempre te elijo a ti.<br>
+        Prometo más abrazos que discusiones 🤍
+      </p>
+
+      <div class="footer">
+        17 de enero – 1 año juntos ✨
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function mostrarSorpresa() {
+      document.getElementById("sorpresa").classList.remove("hidden");
+    }
+
+    function mostrarPerdon() {
+      document.getElementById("perdon").classList.remove("hidden");
+    }
+  </script>
+
+</body>
+</html>
+
