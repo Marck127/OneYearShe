@@ -1,147 +1,261 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Para mi Chunkituy 💖</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-      font-family: 'Segoe UI', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: #fff;
-      padding: 20px;
-    }
+<meta charset="UTF-8">
+<title>Para mi Chunkituy 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    .card {
-      background: rgba(0,0,0,0.25);
-      border-radius: 20px;
-      padding: 30px;
-      max-width: 420px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    }
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  overflow: hidden;
+}
 
-    h1 {
-      font-size: 1.8em;
-      margin-bottom: 10px;
-    }
+.card {
+  background: rgba(0,0,0,0.25);
+  border-radius: 20px;
+  padding: 20px;
+  width: 90%;
+  max-width: 420px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
 
-    p {
-      font-size: 1.05em;
-      line-height: 1.4em;
-    }
+h1 { font-size: 1.5em; }
 
-    button {
-      margin-top: 15px;
-      padding: 12px 25px;
-      font-size: 1em;
-      border: none;
-      border-radius: 30px;
-      background: #ff4d6d;
-      color: white;
-      cursor: pointer;
-      transition: transform 0.2s, background 0.2s;
-    }
+p {
+  font-size: 0.95em;
+  line-height: 1.5em;
+}
 
-    button:hover {
-      transform: scale(1.05);
-      background: #ff1e4d;
-    }
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
 
-    .hidden {
-      display: none;
-    }
+.tab {
+  padding: 8px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.2);
+  cursor: pointer;
+  font-size: 0.85em;
+}
 
-    .rose {
-      font-size: 80px;
-      animation: float 2s infinite ease-in-out;
-    }
+.tab.active {
+  background: #ff4d6d;
+}
 
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0); }
-    }
+.content { display: none; }
+.content.active { display: block; }
 
-    .footer {
-      margin-top: 20px;
-      font-size: 0.9em;
-      opacity: 0.9;
-    }
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  background: #ff4d6d;
+  color: white;
+  cursor: pointer;
+}
 
-    .sorry {
-      margin-top: 15px;
-      font-size: 1em;
-      background: #ffd166;
-      color: #333;
-    }
+.sorryBtn {
+  background: #ffd166;
+  color: #333;
+}
 
-    .sorry:hover {
-      background: #ffbe0b;
-    }
-  </style>
+.rose {
+  font-size: 60px;
+  animation: float 2s infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+.footer {
+  margin-top: 10px;
+  font-size: 0.8em;
+}
+
+.hidden { display: none; }
+
+/* corazones */
+.heart {
+  position: absolute;
+  bottom: -10px;
+  color: rgba(255,255,255,0.7);
+  animation: rise 6s linear infinite;
+}
+
+@keyframes rise {
+  0% { transform: translateY(0) scale(0.8); opacity: 1; }
+  100% { transform: translateY(-110vh) scale(1.2); opacity: 0; }
+}
+
+/* imagen */
+.photo {
+  width: 100%;
+  border-radius: 15px;
+  margin-top: 10px;
+}
+
+/* contador */
+.counter {
+  margin-top: 8px;
+  font-size: 0.9em;
+  opacity: 0.9;
+}
+
+</style>
 </head>
+
 <body>
 
-  <div class="card">
-    <h1>Hola Sherin 💕</h1>
-    <p>
-      Mi princesa, mi niña, mi vida,<br>
-      mi tesoro y mi chunkituy
-    </p>
+<div class="card">
 
-    <button onclick="mostrarSorpresa()">Tócalo bajo tu propio riesgo 😏</button>
+<h1>Para Sherin 💕</h1>
 
-    <div id="sorpresa" class="hidden">
-      <div class="rose">🌹</div>
+<div class="tabs">
+  <div class="tab active" onclick="tab(0)">🌹 Nuestro Año</div>
+  <div class="tab" onclick="tab(1)">🥺 Lo que siento</div>
+</div>
 
-      <p>
-        Gracias por enseñarme a ser agradecido.<br>
-        Gracias por las risas.<br>
-        Gracias por todos los regalos que me diste,
-        desde tus cartas mini hechas a mano
-        hasta tu perfume Versace súper caro 😅.<br><br>
+<!-- TAB 1 -->
+<div class="content active">
 
-        Gracias por entenderme en las buenas y en las malas.<br>
-        Gracias por no rendirte conmigo.<br><br>
+<p>Mi princesa, mi niña, mi vida,<br>mi tesoro y mi chunkituy</p>
 
-        Sé que ha sido un gran año a tu lado,
-        pero espero sea el inicio de muchísimos años más.<br><br>
+<button onclick="mostrar()">Tócalo bajo tu propio riesgo 😏</button>
 
-        Te amo mi amor y así seguirá ❤️
-      </p>
+<div id="sorpresa" class="hidden">
 
-      <button class="sorry" onclick="mostrarPerdon()">
-        Perdóname 🥺
-      </button>
+<div class="rose">🌹</div>
 
-      <p id="perdon" class="hidden">
-        Ok… no siempre tengo la razón 😌<br>
-        Pero siempre te elijo a ti.<br>
-        Prometo más abrazos que discusiones 🤍
-      </p>
+<img src="https://via.placeholder.com/400x250.png?text=Tu+Foto+Aquí" class="photo">
 
-      <div class="footer">
-        17 de enero – 1 año juntos ✨
-      </div>
-    </div>
-  </div>
+<div class="counter" id="contador"></div>
 
-  <script>
-    function mostrarSorpresa() {
-      document.getElementById("sorpresa").classList.remove("hidden");
-    }
+<p>
+Gracias por enseñarme a ser agradecido.<br>
+Gracias por las risas.<br>
+Gracias por todos los regalos que me diste,
+desde tus cartas mini hechas a mano
+hasta tu perfume Versace súper caro 😅.<br><br>
 
-    function mostrarPerdon() {
-      document.getElementById("perdon").classList.remove("hidden");
-    }
-  </script>
+Gracias por entenderme en las buenas y en las malas.<br>
+Gracias por no rendirte conmigo.<br><br>
+
+Sé que ha sido un gran año a tu lado,
+pero espero sea el inicio de muchísimos años más.<br><br>
+
+Te amo mi amor y así seguirá ❤️
+</p>
+
+<button class="sorryBtn" onclick="perdon()">Perdóname 🥺</button>
+
+<p id="perdon" class="hidden">
+Ok… no siempre tengo la razón 😌<br>
+Pero siempre te elijo a ti.<br>
+Prometo más abrazos que discusiones 🤍
+</p>
+
+<div class="footer">17 de enero – 1 año juntos ✨</div>
+
+</div>
+</div>
+
+<!-- TAB 2 -->
+<div class="content">
+
+<p>
+Lo siento… de verdad 🥺<br><br>
+
+Siento mucho haber pensado en rendirme,
+haber considerado terminar algo tan valioso como lo nuestro.<br><br>
+
+Me duele saber que pude hacerte sentir mal,
+cuando lo único que quiero es hacerte feliz.<br><br>
+
+Me arrepiento de no haberte entendido mejor,
+de no haberte escuchado como mereces.<br><br>
+
+Porque te amo… muchísimo.<br><br>
+
+Quiero que aprendamos juntos,
+que crezcamos,
+que sepamos comunicarnos mejor.<br><br>
+
+No quiero un amor perfecto…<br>
+quiero un amor real contigo.<br><br>
+
+Quiero construir un futuro a tu lado,
+cumplir esa meta hermosa de algún día casarnos
+y tener una vida juntos.<br><br>
+
+Te amo más de lo que a veces sé demostrar.<br><br>
+
+Y de verdad… lo siento ❤️
+</p>
+
+</div>
+
+</div>
+
+<!-- música -->
+<audio autoplay loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+</audio>
+
+<script>
+function tab(i){
+  let t=document.querySelectorAll('.tab');
+  let c=document.querySelectorAll('.content');
+  t.forEach(x=>x.classList.remove('active'));
+  c.forEach(x=>x.classList.remove('active'));
+  t[i].classList.add('active');
+  c[i].classList.add('active');
+}
+
+function mostrar(){
+  document.getElementById("sorpresa").classList.remove("hidden");
+}
+
+function perdon(){
+  document.getElementById("perdon").classList.remove("hidden");
+}
+
+/* corazones */
+setInterval(()=>{
+  let h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="💖";
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=(10+Math.random()*20)+"px";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),6000);
+},500);
+
+/* contador desde 17 enero */
+function contador(){
+  let inicio=new Date("2025-01-17");
+  let hoy=new Date();
+  let dias=Math.floor((hoy-inicio)/(1000*60*60*24));
+  document.getElementById("contador").innerHTML="💞 "+dias+" días juntos";
+}
+contador();
+</script>
 
 </body>
 </html>
-
