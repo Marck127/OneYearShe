@@ -15,19 +15,19 @@ body {
   justify-content: center;
   align-items: center;
   color: #fff;
-  overflow: hidden;
 }
 
+/* CARD CON SCROLL */
 .card {
   background: rgba(0,0,0,0.25);
   border-radius: 20px;
   padding: 20px;
   width: 90%;
   max-width: 420px;
+  height: 90vh;
+  overflow-y: auto;
   box-shadow: 0 10px 30px rgba(0,0,0,0.3);
   text-align: center;
-  position: relative;
-  z-index: 2;
 }
 
 h1 { font-size: 1.5em; }
@@ -91,31 +91,31 @@ button {
 
 .hidden { display: none; }
 
-/* corazones */
+/* corazones detrás */
 .heart {
-  position: absolute;
+  position: fixed;
   bottom: -10px;
   color: rgba(255,255,255,0.7);
   animation: rise 6s linear infinite;
+  z-index: 0;
 }
 
 @keyframes rise {
-  0% { transform: translateY(0) scale(0.8); opacity: 1; }
-  100% { transform: translateY(-110vh) scale(1.2); opacity: 0; }
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-110vh); opacity: 0; }
 }
 
 /* imagen */
 .photo {
   width: 100%;
   border-radius: 15px;
-  margin-top: 10px;
+  margin: 10px 0;
 }
 
 /* contador */
 .counter {
   margin-top: 8px;
   font-size: 0.9em;
-  opacity: 0.9;
 }
 
 </style>
@@ -142,8 +142,6 @@ button {
 <div id="sorpresa" class="hidden">
 
 <div class="rose">🌹</div>
-
-<img src="img/SheyYo.jpeg" class="photo">
 
 <div class="counter" id="contador"></div>
 
@@ -178,6 +176,9 @@ Prometo más abrazos que discusiones 🤍
 
 <!-- TAB 2 -->
 <div class="content">
+
+<!-- FOTO AQUÍ -->
+<img src="img/SheyYo.jpeg" class="photo">
 
 <p>
 Lo siento… de verdad 🥺<br><br>
@@ -247,7 +248,7 @@ setInterval(()=>{
   setTimeout(()=>h.remove(),6000);
 },500);
 
-/* contador desde 17 enero */
+/* contador */
 function contador(){
   let inicio=new Date("2025-01-17");
   let hoy=new Date();
